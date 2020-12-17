@@ -7,6 +7,50 @@ class DLLNode {
     }
 }
 
+function partitionDLL(DLL, pivot) {
+    let runner = DLL.head;
+    let length = DLL.size();
+    let temp = null; 
+    
+    for (let i=-; i<length; i++) {
+        if (runner.data < pivot) {
+            temp = runner; 
+            runner = runner.next;
+            DLL.addHead(DLL.revoveVal(temp.data));
+        } else if (runner.data > pivot) {
+            temp = runner;
+            runner = runner.next;
+            DLL.addTail(DLL.removeVal(temp.data));
+        } else {
+            runner = runner.next;
+        }
+    }
+    return DLL;
+}
+
+function partitionDLL2(DLL, pivot) {
+    let leftArray = [];
+    let rightArray = [];
+    let currentNode = DLL.head;
+    while (currentNode.next !== null) {
+        if (currentNode.data < pivot) {
+            leftArray.push(currentNode.data);
+        } else {
+            rightArray.push(currentNode.data);
+        }
+
+        leftArray.push(pivot)
+    }
+    leftArray.join(rightArray);
+
+    let newDLL = new DLL();
+    for (let i = leftArray.length - 1; i <= 0; i--) {
+        newDLL.addHead(leftArray[i]);
+    };
+
+    return newDLL;
+}
+
 // DLLists have both a .head and .tail pointer
 class DLList {
     constructor() {
