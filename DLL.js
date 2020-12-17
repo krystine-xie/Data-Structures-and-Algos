@@ -12,11 +12,11 @@ function partitionDLL(DLL, pivot) {
     let length = DLL.size();
     let temp = null; 
     
-    for (let i=-; i<length; i++) {
+    for (let i=0; i<length; i++) {
         if (runner.data < pivot) {
             temp = runner; 
             runner = runner.next;
-            DLL.addHead(DLL.revoveVal(temp.data));
+            DLL.addHead(DLL.removeVal(temp.data));
         } else if (runner.data > pivot) {
             temp = runner;
             runner = runner.next;
