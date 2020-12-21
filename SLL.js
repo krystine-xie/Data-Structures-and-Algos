@@ -140,6 +140,4 @@ class SLL {
         this.length--; 
         return thisNode;
     }
-
-
 }
