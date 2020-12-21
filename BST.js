@@ -21,35 +21,65 @@ class BST {
     };
 
     insert(node, current){
-        if (this.isEmpty()) {
-            this.root = node; 
+        if (current === undefined) {
+            current = this.root;
         }
 
+        // empty tree
         if (current === null) {
             current = node; 
             return; 
         } 
 
         if (node.data < current.data) {
-            this.insert(node, current.left) 
-        } else {
-            this.insert(node, current.right)
+            if (current.left === null) {
+                current.left = node;
+                return;
+            } else {
+                this.insert(node, current.left);
+            }
+        }
+
+        if (node.data > current.data) {
+            if (current.right === null) {
+                current.right = node; 
+                return;
+            } else {
+                this.insert(node, current.right)
+            }
         }
     };
 
+    // recursive
     getLargestFromSubtree(current){
-        while (current.right) {
-            current = current.right;
+        if (current === undefined) {
+            current = this.root;
         }
 
-        return current;
+        if (current === null) {
+            return null; 
+        }
+
+        if (current.right === null) {
+            return current.val;
+        }
+
+       return this.getLargestFromSubtree(current.right)
+
     }
 
+    // iterative
     getSmallestFromSubtree(current){
-        while (current.left) {
-            current = current.left;
+        let runner = this.root;
+
+        if (!runner) {
+            return;
         }
 
-        return current;
+        while (runner.left) {
+            runner = runner.left;
+        }
+
+        return runner.val;
     }
 };
