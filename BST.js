@@ -82,4 +82,42 @@ class BST {
 
         return runner.val;
     }
+
+    // return true or false is val exists within the current tree
+    // if current is undefined, current = this.root
+    find(val, current) {
+        if (current === undefined) {
+            current = this.root;
+        }
+
+        if (current.val == val) {
+            return true; 
+        } else if (current.val < val && current.left !== null) {
+            current = current.left;
+            this.find(val, current);
+        } else if (current.val > val && current.right !== null) {
+            current = current.right;
+            this.find(val, current);
+        }
+
+        return false; 
+        // ... this.find(val, current.left/right)
+    }
+
+    // remove and return the smallest node of a given tree
+    removeSmallest(current) {
+        if (current === undefined) {
+            current = this.root;
+        }
+
+        let smallest = this.getSmallestFromSubtree(); 
+        while (current.left != smallest) {
+            current = current.left; 
+        }
+
+        current.left = null
+        return smallest; 
+
+    }
+
 };
