@@ -154,7 +154,7 @@ class BST {
 
         current.val = temp.val; 
 
-        current.right = this.delete(temp.val, current.right)
+        current.right = this.delete(temp.val, current.right);
 
     }
 
