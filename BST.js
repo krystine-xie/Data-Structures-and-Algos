@@ -117,7 +117,46 @@ class BST {
 
         current.left = null
         return smallest; 
+    }
+
+    delete(val, current) {
+        // if current is undefined, set as root
+        if (current === null) {
+            current = this.root;
+        }
+
+        // if root == null, return null 
+        if (current === null) {
+            return null;
+        }
+
+        // check if val is smaller or greater
+        if (val < current.val) {
+            current.left = this.delete(val, current.left)
+        } else if (val > current.val) {
+            current.right = this.delete(val, current.right)
+        }
+
+        // otherwise val is === to current.val
+
+        // IF THE CURRENT ONLY HAS ONE CHILD OR NONE; 
+        if (!current.left) {
+            let temp = current;
+            current = current.right;
+            return temp; 
+        } else if (!current.right) {
+            let temp = current;
+            current = current.left;
+            return temp; 
+        }
+
+        let temp = this.getSmallestFromSubtree(current.right); 
+
+        current.val = temp.val; 
+
+        current.right = this.delete(temp.val, current.right)
 
     }
+
 
 };
