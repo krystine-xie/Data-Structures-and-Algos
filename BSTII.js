@@ -85,6 +85,28 @@ class BST {
 
         return visited; 
     }
+
+    DFSPreOrder() {
+        let visited = []; 
+        let current = this.root; 
+
+        function traverse(node) {
+            visited.push(node); 
+            if (node.left) {
+                traverse(node.left);
+            }
+
+            if (node.right) {
+                traverse(node.right);
+            }
+        }
+
+        traverse(current); 
+        return visited; 
+
+    }
+
+
 }
 
 var newBST = new BST(); 
