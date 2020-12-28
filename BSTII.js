@@ -103,7 +103,27 @@ class BST {
 
         traverse(current); 
         return visited; 
+    }
 
+    DFSPostOrder() {
+        let visited = [];
+        let current = this.root;
+
+        function traverse(node) {
+            if (node.left) {
+                traverse(node.left); 
+            } 
+
+            if (node.right) {
+                traverse(node.right);
+            }
+            
+            // when you get to the end of the line
+            visited.push(node.data);
+        }
+
+        traverse(current); 
+        return visited; 
     }
 
 
