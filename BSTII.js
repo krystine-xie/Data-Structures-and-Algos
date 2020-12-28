@@ -117,13 +117,30 @@ class BST {
             if (node.right) {
                 traverse(node.right);
             }
-            
+
             // when you get to the end of the line
             visited.push(node.data);
         }
 
         traverse(current); 
         return visited; 
+    }
+
+    DFSInOrder() {
+        let visited = [];
+        let current = this.root; 
+
+        function traverse(node) {
+            if (node.left) {
+                traverse(node.left);
+            }
+            visited.push(node.data);
+            if (node.right) {
+                traverse(node.right); 
+            }
+        }
+        traverse(current); 
+        return visited;
     }
 
 
