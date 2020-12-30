@@ -3,7 +3,7 @@ class MaxBinaryHeap {
         this.values = [];
     }
 
-    insert() {
+    insert(num) {
         this.values.push(num); 
         this.values.bubbleUp();
     }
@@ -16,10 +16,10 @@ class MaxBinaryHeap {
             let parentIndex = Math.floor((index-1)/2);
             let parentElement = this.values[parentIndex]; 
 
-            if (element <= parent) {
+            if (element <= parentElement) {
                 break;
             }
-
+ 
             this.values[parentIndex] = element; 
             this.values[index] = parentElement;
             index = parentIndex;
