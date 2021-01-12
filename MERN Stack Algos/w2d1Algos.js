@@ -25,6 +25,7 @@ function intersection(arr1, arr2) {
             j++;
             // if they're equal
         } else {
+            // check if results already have duplicates
             if (result[result.length - 1] !== arr1[i]) {
                 result.push(arr1[i]);
             } else {
