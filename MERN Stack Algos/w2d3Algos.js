@@ -62,7 +62,7 @@ function minOfSorted2(arr, low = 0, high = arr.length - 1) {
     if (low == high) {
         return arr[low];
     }
-    let mid = Math.floor((high - low) / 2);
+    let mid = Math.floor((high + low) / 2);
     console.log("Low: " + arr[low])
     console.log("Mid: " + arr[mid])
     console.log("High: " + arr[high])
