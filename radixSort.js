@@ -40,4 +40,4 @@ function radixSort(listOfNum) {
     return listOfNum;
 }
 
-radixSort([23, 345, 5467. 12. 2345. 9852])
+radixSort([23, 345, 5467, 12, 2345, 9852])
