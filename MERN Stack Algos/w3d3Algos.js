@@ -65,3 +65,7 @@ function getMaxServings(recipe, ingredients) {
 }
 
 getMaxServings(recipe, available);
+
+// function getMaxServings2(recipe, available) {
+//     Math.min(...Object.entries(recipe).map([key, val]) => available[key] / val) || 0;
+// }
