@@ -61,7 +61,7 @@ function canStrBecomePalindrome(str) {
             if (letterCount[letter] % 2 === 1) {
                 oddCount++;
             } 
-        }
+        }was 
 
         if (oddCount > 1) {
             return false; 
